@@ -93,7 +93,7 @@ function calcularResultado2() {
   if (n < k) {
     const resultado4 = calcularPn(lambda, mu, k, n);
     document.getElementById("Pn").textContent =
-      "Pn para n=0,1,2,...k = " + resultado4.toFixed(3);
+      "Pn para n<k = " + resultado4.toFixed(3);
   } else {
     const resultado4 = calcularPn2(lambda, mu, k, n);
     document.getElementById("Pn").textContent = "Pn para n>=k "+ resultado4.toFixed(3);
@@ -133,26 +133,32 @@ function calcularResultado3() {
   const tiempoCola = calcularWq(lambda, mu, k, resultado.toFixed(3));
 
   const ctte = lambda * horas * tiempoCola.toFixed(3) * costoEsperaCola.toFixed(3);
-  document.getElementById("CTTE").textContent = "CTTE = " + ctte.toFixed(3);
+  document.getElementById("CTTE").textContent = "CTTE ($/d) = " + ctte.toFixed(3);
 
   //Calcular CTTS
   
   const tiempoSistema = calcularW(lambda, mu, k, resultado);
-  const ctts = lambda * horas * tiempoSistema.toFixed(2) * costoSistema;
-  document.getElementById("CTTS").textContent = "CTTS = " + ctts.toFixed(3);
+  //console.log('tiempoSistema', tiempoSistema);
+
+  const ctts = lambda * horas * tiempoSistema.toFixed(3) * costoSistema;
+  document.getElementById("CTTS").textContent = "CTTS ($/d) = " + ctts.toFixed(3);
+  console.log('lambda',lambda);
+  console.log('horas',horas);
+  console.log('tiempoSistema',tiempoSistema.toFixed(3));
+  console.log('costoSistema',costoSistema);
 
   //Calcularr CTTSer
   const tiempo = 1/mu;
   const cttserv = lambda * horas * tiempo.toFixed(3) * costoServicio;
-  document.getElementById("CTTSer").textContent = "CTTSer = " + cttserv.toFixed(3);
+  document.getElementById("CTTSer").textContent = "CTTSE ($/d) = " + cttserv.toFixed(3);
 
   //Calcular CTS
   const cts = k * costoServidor * horas;
-  document.getElementById("CTS").textContent = "CTS = " + cts.toFixed(3);
+  document.getElementById("CTS").textContent = "CTS ($/d)= " + cts.toFixed(3);
 
   //Calcular CT
   const ct = ctte + ctts + cttserv + cts;
-  document.getElementById("CT").textContent = "CT = " + ct.toFixed(3);
+  document.getElementById("CT").textContent = "CT ($/d)= " + ct.toFixed(3);
 
 
 }
@@ -261,27 +267,27 @@ function calcularResultado5() {
   const wq = lq / ((poblacion - l) * lambda);
 
   const ctte = lambda * horas * wq * costoEsperaCola;
-  document.getElementById("CTTE2").textContent = "CTTE = " + ctte.toFixed(3);
+  document.getElementById("CTTE2").textContent = "CTTE ($/d)= " + ctte.toFixed(3);
 
   //Calcular CTTS
   
   const tiempoSistema = lq + (1/mu);
 
   const ctts = lambda * horas * tiempoSistema * costoSistema;
-  document.getElementById("CTTS2").textContent = "CTTS = " + ctts.toFixed(3);
+  document.getElementById("CTTS2").textContent = "CTTS ($/d)= " + ctts.toFixed(3);
 
   //Calcularr CTTSer
   const tiempo = 1/mu;
   const cttserv = lambda * horas * tiempo * costoServicio;
-  document.getElementById("CTTSer2").textContent = "CTTSer = " + cttserv.toFixed(3);
+  document.getElementById("CTTSer2").textContent = "CTTSE ($/d)= " + cttserv.toFixed(3);
 
   //Calcular CTS
   const cts = k * costoServidor * horas;
-  document.getElementById("CTS2").textContent = "CTS = " + cts.toFixed(3);
+  document.getElementById("CTS2").textContent = "CTS ($/d)= " + cts.toFixed(3);
 
   //Calcular CT
   const ct = ctte + ctts + cttserv + cts;
-  document.getElementById("CT2").textContent = "CT = " + ct.toFixed(3);
+  document.getElementById("CT2").textContent = "CT ($/d)= " + ct.toFixed(3);
 }
 /************************************************************************ */
 //*************************************************************************Funciones PFCM************************************************************** */

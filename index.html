@@ -10,12 +10,16 @@
   <body class="grid-container">
     <header class="header">
       <h2>Teoría de Colas</h2>
-    </header>
-    <nav class="navbar">
       <button id="btn1">PICM</button>
       <button id="btn2">PFCM</button>
+
+    </header>
+
+    <!-- <nav class="navbar">
+      <button id="btn1">PICM</button>
+      <button id="btn2">PFCM</button> -->
       <!-- <button id="btn3">LIMPIAR</button> -->
-    </nav>
+    <!-- </nav> -->
     <!-- <aside class="sidebar">sidebar</aside> -->
     <article class="main" id="main-content">
       <div id="contenido-1" class="contenido">
@@ -40,32 +44,34 @@
           <label for="input3">k :</label>
           <input type="number" id="input3" min="0" step="any" pattern="[0-9]+([.,][0-9]+)?" title="Ingresa números enteros o decimales" required>
           <br>
+          <button onclick="calcularResultado1()">Calcular</button>
         </div> 
         
-        <button onclick="calcularResultado1()">Calcular</button>
-        <br>
-        <div class="resultados-contenedor">
-          <p class="resultado-titulo">Probabilidad de hallar el sistema completamente vacío</p>
-          <p id="P0" class="resultado"></p>
-          <p class="resultado-titulo">Probabilidad de que un usuario que llega, tenga que esperar</p>
-          <p id="Pk" class="resultado"></p>
-          <p class="resultado-titulo">Probabilidad de que un usuario que llega no tenga que esperar</p>
-          <p id="PNE" class="resultado"></p>
-          <p class="resultado-titulo">Número esperado de clientes en el sistema</p>
-          <p id="L" class="resultado"></p>
-          <p class="resultado-titulo">Número esperado de clientes en la cola</p>
-          <p id="Lq" class="resultado"></p>
-          <p class="resultado-titulo">Número esperado de clientes en la cola no vacía</p>
-          <p id="Ln" class="resultado"></p>
-          <p class="resultado-titulo">Tiempo esperado en el sistema</p>
-          <p id="W" class="resultado"></p>
-          <p class="resultado-titulo">Tiempo esperado en cola</p>
-          <p id="Wq" class="resultado"></p>
-          <p class="resultado-titulo">Tiempo esperado en cola para colas no vacías</p>
-          <p id="Wn" class="resultado"></p>
-          
         
-        </div>
+        <br>
+
+        <div class="informacion">
+          <div class="resultados-contenedor">
+            <p class="resultado-titulo">Probabilidad de hallar el sistema completamente vacío</p>
+            <p id="P0" class="resultado"></p>
+            <p class="resultado-titulo">Probabilidad de que un usuario que llega, tenga que esperar</p>
+            <p id="Pk" class="resultado"></p>
+            <p class="resultado-titulo">Probabilidad de que un usuario que llega no tenga que esperar</p>
+            <p id="PNE" class="resultado"></p>
+            <p class="resultado-titulo">Número esperado de clientes en el sistema</p>
+            <p id="L" class="resultado"></p>
+            <p class="resultado-titulo">Número esperado de clientes en la cola</p>
+            <p id="Lq" class="resultado"></p>
+            <p class="resultado-titulo">Número esperado de clientes en la cola no vacía</p>
+            <p id="Ln" class="resultado"></p>
+            <p class="resultado-titulo">Tiempo esperado en el sistema</p>
+            <p id="W" class="resultado"></p>
+            <p class="resultado-titulo">Tiempo esperado en cola</p>
+            <p id="Wq" class="resultado"></p>
+            <p class="resultado-titulo">Tiempo esperado en cola para colas no vacías</p>
+            <p id="Wn" class="resultado"></p>
+          </div>
+      </div>
         
 
 
@@ -89,64 +95,69 @@
         <br>
 
         <p>COSTOS</p>
-        <label>horas :</label>
-        <input
-          type="number"
-          id="input5"
-          min="0"
-          step="any"
-          pattern="[0-9]+([.,][0-9]+)?"
-          title="Ingresa números enteros o decimales"
-          required
-        />
-        <br>
 
-        <label>CTE $/h:</label>
-        <input
-          type="number"
-          id="input6"
-          min="0"
-          step="any"
-          pattern="[0-9]+([.,][0-9]+)?"
-          title="Ingresa números enteros o decimales"
-          required
-        />
-        <br>
-        <label>CTS $/h:</label>
-        <input
-          type="number"
-          id="input7"
-          min="0"
-          step="any"
-          pattern="[0-9]+([.,][0-9]+)?"
-          title="Ingresa números enteros o decimales"
-          required
-        />
-        <br>
-        <label>CTSE $/h:</label>
-        <input
-          type="number"
-          id="input8"
-          min="0"
-          step="any"
-          pattern="[0-9]+([.,][0-9]+)?"
-          title="Ingresa números enteros o decimales"
-          required
-        />
-        <br>
-        <label>CS $/h:</label>
-        <input
-          type="number"
-          id="input9"
-          min="0"
-          step="any"
-          pattern="[0-9]+([.,][0-9]+)?"
-          title="Ingresa números enteros o decimales"
-          required
-        />
-        <br>
+        <div class="ingreso2">
+          <label>Horas :</label>
+          <input
+            type="number"
+            id="input5"
+            min="0"
+            step="any"
+            pattern="[0-9]+([.,][0-9]+)?"
+            title="Ingresa números enteros o decimales"
+            required
+          />
+          <br>
+  
+          <label>CTE espera ($/h):</label>
+          <input
+            type="number"
+            id="input6"
+            min="0"
+            step="any"
+            pattern="[0-9]+([.,][0-9]+)?"
+            title="Ingresa números enteros o decimales"
+            required
+          />
+          <br>
+          <label>CTS sistema ($/h):</label>
+          <input
+            type="number"
+            id="input7"
+            min="0"
+            step="any"
+            pattern="[0-9]+([.,][0-9]+)?"
+            title="Ingresa números enteros o decimales"
+            required
+          />
+          <br>
+          <label>CTSE servicio ($/h):</label>
+          <input
+            type="number"
+            id="input8"
+            min="0"
+            step="any"
+            pattern="[0-9]+([.,][0-9]+)?"
+            title="Ingresa números enteros o decimales"
+            required
+          />
+          <br>
+          <label>CS servidor ($/h):</label>
+          <input
+            type="number"
+            id="input9"
+            min="0"
+            step="any"
+            pattern="[0-9]+([.,][0-9]+)?"
+            title="Ingresa números enteros o decimales"
+            required
+          />
+          <br>
+        </div>
+        
 
         <button onclick="calcularResultado3()">Calcular</button>
+        <br><br>
         <p id="CTTE"></p>
         <br>
         <p id="CTTS"></p>
@@ -186,32 +197,35 @@
         </div> 
 
         <button onclick="calcularResultado4()">Calcular</button>
-        <div class="resultados-contenedor">
 
-          <p class="resultado-titulo">Probabilidad de hallar el sistema completamente vacío</p>
-          <p id="P0-F" class="resultado"></p>
-          <p class="resultado-titulo">Probabilidad de hallar n clientes el sistema </p>
-          <p id="Pn-F" class="resultado"></p>
-          <p class="resultado-titulo">Probabilidad de que un usuario que llega, tenga que esperar</p>
-          <p id="PE-F" class="resultado"></p>
-          <p class="resultado-titulo">Probabilidad de que un usuario que llega no tenga que esperar</p>
-          <p id="PNE-F" class="resultado"></p>
-          <p class="resultado-titulo">Número esperado de clientes en el sistema</p>
-          <p id="L-F" class="resultado"></p>
-          <p class="resultado-titulo">Número esperado de clientes en la cola</p>
-          <p id="Lq-F" class="resultado"></p>
-          <p class="resultado-titulo">Número esperado de clientes en la cola no vacía</p>
-          <p id="Ln-F" class="resultado"></p>
-          <p class="resultado-titulo">Tiempo esperado en el sistema</p>
-          <p id="W-F" class="resultado"></p>
-          <p class="resultado-titulo">Tiempo esperado en cola</p>
-          <p id="Wq-F" class="resultado"></p>
-          <p class="resultado-titulo">Tiempo esperado en cola para colas no vacías</p>
-          <p id="Wn-F" class="resultado"></p>
-
+        <div class="informacion">
+          <div class="resultados-contenedor">
+            <p class="resultado-titulo">Probabilidad de hallar el sistema completamente vacío</p>
+            <p id="P0-F" class="resultado"></p>
+            <p class="resultado-titulo">Probabilidad de hallar n clientes el sistema </p>
+            <p id="Pn-F" class="resultado"></p>
+            <p class="resultado-titulo">Probabilidad de que un usuario que llega, tenga que esperar</p>
+            <p id="PE-F" class="resultado"></p>
+            <p class="resultado-titulo">Probabilidad de que un usuario que llega no tenga que esperar</p>
+            <p id="PNE-F" class="resultado"></p>
+            <p class="resultado-titulo">Número esperado de clientes en el sistema</p>
+            <p id="L-F" class="resultado"></p>
+            <p class="resultado-titulo">Número esperado de clientes en la cola</p>
+            <p id="Lq-F" class="resultado"></p>
+            <p class="resultado-titulo">Número esperado de clientes en la cola no vacía</p>
+            <p id="Ln-F" class="resultado"></p>
+            <p class="resultado-titulo">Tiempo esperado en el sistema</p>
+            <p id="W-F" class="resultado"></p>
+            <p class="resultado-titulo">Tiempo esperado en cola</p>
+            <p id="Wq-F" class="resultado"></p>
+            <p class="resultado-titulo">Tiempo esperado en cola para colas no vacías</p>
+            <p id="Wn-F" class="resultado"></p>
+          </div>
         </div>
+        <br>
         <p>COSTOS</p>
-        <label>horas :</label>
+        <div class="ingreso2">
+          <label>Horas :</label>
         <input
           type="number"
           id="input10"
@@ -223,7 +237,7 @@
         />
         <br>
 
-        <label>CTE $/h:</label>
+        <label>CTE espera ($/h):</label>
         <input
           type="number"
           id="input11"
@@ -234,7 +248,7 @@
           required
         />
         <br>
-        <label>CTS $/h:</label>
+        <label>CTS sistema ($/h):</label>
         <input
           type="number"
           id="input12"
@@ -245,7 +259,7 @@
           required
         />
         <br>
-        <label>CTSE $/h:</label>
+        <label>CTSE servicio($/h):</label>
         <input
           type="number"
           id="input13"
@@ -256,7 +270,7 @@
           required
         />
         <br>
-        <label>CS $/h:</label>
+        <label>CS servidor ($/h):</label>
         <input
           type="number"
           id="input14"
@@ -268,7 +282,11 @@
         />
         <br>
 
+        </div>
+        
+
         <button onclick="calcularResultado5()">Calcular</button>
+        <br><br>
         <p id="CTTE2"></p>
         <br>
         <p id="CTTS2"></p>
